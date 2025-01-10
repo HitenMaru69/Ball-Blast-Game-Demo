@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -9,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 startingPosition;
     private Vector3 mousePosition;
     private bool isDrag;
+
 
     private void Update()
     {
@@ -43,6 +45,15 @@ public class PlayerMovement : MonoBehaviour
             newPosition.x = Mathf.Clamp(newPosition.x, -maxPosition, maxPosition);
 
             transform.position = newPosition;
+
+
+            if(EventManager.Instance.iswait)
+            {
+                StartCoroutine(EventManager.Instance.FireBulletEvent());
+            }
+            
         }
     }
+
+  
 }
