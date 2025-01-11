@@ -8,18 +8,21 @@ public class EventManager : MonoBehaviour
 
     public event EventHandler FireBullet;
 
+
     public bool iswait = true;
 
-    private void Start()
+
+    private void Awake()
     {
         Instance = this;
     }
+
 
     public IEnumerator FireBulletEvent()
     {
         iswait = false;
         FireBullet?.Invoke(this, EventArgs.Empty);
-        yield return new WaitForSeconds(0.05f);
+        yield return new WaitForSeconds(5f);
         iswait = true;
     }
 
