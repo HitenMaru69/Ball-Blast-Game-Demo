@@ -20,9 +20,15 @@ public class Bullet : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Ball"))
         {
-           Ball ball  = collision.gameObject.GetComponent<Ball>();
-           ball.SpwanNewBall();
+            Ball ball = collision.gameObject.GetComponent<Ball>();
+               
+            EventManager.Instance.NextSpwanBallEvent(ball);
+            EventManager.Instance.IncreesBallNumberEvent();
+
+            Destroy(collision.gameObject);
             Destroy(gameObject);
+
+
         }
     }
 }

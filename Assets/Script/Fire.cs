@@ -12,6 +12,14 @@ public class Fire : MonoBehaviour
         EventManager.Instance.FireBullet += SpwanBullet; 
     }
 
+    private void Update()
+    {
+        if(Input.GetKeyUp(KeyCode.Space))
+        {
+            BulletFire();
+        }
+    }
+
     private void SpwanBullet(object sender, EventArgs e)
     {
         BulletFire();  

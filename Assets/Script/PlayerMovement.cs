@@ -49,7 +49,7 @@ public class PlayerMovement : MonoBehaviour
 
             if(EventManager.Instance.iswait)
             {
-                StartCoroutine(EventManager.Instance.FireBulletEvent());
+                //StartCoroutine(EventManager.Instance.FireBulletEvent());
             }
             
         }
