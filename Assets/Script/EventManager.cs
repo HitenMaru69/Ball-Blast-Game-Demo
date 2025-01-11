@@ -22,7 +22,7 @@ public class EventManager : MonoBehaviour
     {
         iswait = false;
         FireBullet?.Invoke(this, EventArgs.Empty);
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(0.05f);
         iswait = true;
     }
 

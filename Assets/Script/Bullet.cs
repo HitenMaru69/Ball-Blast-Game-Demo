@@ -22,6 +22,7 @@ public class Bullet : MonoBehaviour
         {
            Ball ball  = collision.gameObject.GetComponent<Ball>();
            ball.SpwanNewBall();
+            Destroy(gameObject);
         }
     }
 }

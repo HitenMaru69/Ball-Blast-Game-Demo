@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2205121420303974621}
   - component: {fileID: 6717826590796406702}
   - component: {fileID: 6346632499183887190}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Ball2
   m_TagString: Ball
   m_Icon: {fileID: 0}
@@ -115,7 +115,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!58 &6717826590796406702
 CircleCollider2D:
@@ -169,4 +169,3 @@ MonoBehaviour:
   forceDirection: {x: 2, y: 2}
   forceSpeed: 0.5
   ball1: {fileID: 3986740725032677054, guid: 96fdd8ffc44d24e47886222c999365dc, type: 3}
-  ball2: {fileID: 7691447931577092379, guid: dea632fa6cd529849bfd0a021629d858, type: 3}
