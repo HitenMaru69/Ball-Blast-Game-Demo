@@ -24,9 +24,14 @@ public class Bullet : MonoBehaviour
                
             EventManager.Instance.NextSpwanBallEvent(ball);
             EventManager.Instance.IncreesBallNumberEvent();
-
             Destroy(collision.gameObject);
             Destroy(gameObject);
+            GameManager.Instance.totalBall -= 1;
+
+            if(GameManager.Instance.totalBall <= 0)
+            {
+                EventManager.Instance.PlayerWinEvent();
+            }
 
 
         }

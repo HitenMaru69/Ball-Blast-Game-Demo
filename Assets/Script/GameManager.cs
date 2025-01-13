@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     public int currentObject = 0;
     public int currentLevel = 0;
 
+    public int totalBall;
     private void Awake()
     {
         Instance = this;
@@ -26,10 +27,15 @@ public class GameManager : MonoBehaviour
             ;
         Ball ball = obj.GetComponent<Ball>();
         ball.nextPrefeb = levelList[currentLevel].ballPrefeb[currentObject].gameObject;
+        totalBall += 1;
         currentObject += 1;
 
         EventManager.Instance.IncressBallNumber += IncreesCurrentObjectNumber;
+
+        EventManager.Instance.PlayerWin += CheckPlayerWinn;
     }
+
+
 
     private void IncreesCurrentObjectNumber(object sender, System.EventArgs e)
     {
@@ -37,6 +43,13 @@ public class GameManager : MonoBehaviour
             currentObject += 1;
         }
         
+    }
+
+    private void CheckPlayerWinn(object sender, System.EventArgs e)
+    {
+        // Player Winn Functionality
+
+        Debug.Log("Player Winn");
     }
 
     public GameObject NextObject()

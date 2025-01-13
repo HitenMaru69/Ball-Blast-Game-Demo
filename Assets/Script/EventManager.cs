@@ -12,6 +12,9 @@ public class EventManager : MonoBehaviour
 
     public event EventHandler  NextBallSpwan;
 
+    public event EventHandler PlayerDie;
+
+    public event EventHandler PlayerWin;
 
     public bool iswait = true;
 
@@ -40,5 +43,16 @@ public class EventManager : MonoBehaviour
         NextBallSpwan?.Invoke(ball, EventArgs.Empty);
         
     }
+
+    public void PlayerDieEvent()
+    {
+        PlayerDie?.Invoke(this, EventArgs.Empty);
+    }
+
+    public void PlayerWinEvent()
+    {
+        PlayerWin?.Invoke(this, EventArgs.Empty);
+    }
+    
 
 }

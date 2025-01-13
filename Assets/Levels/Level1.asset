@@ -16,4 +16,3 @@ MonoBehaviour:
   firstObject: {fileID: 5806083096403327760, guid: 467efa227f324d14f92b1d09693552f8, type: 3}
   ballPrefeb:
   - {fileID: 2456873394737807921, guid: d03fef8165ce2764592414388c0fa7dd, type: 3}
-  - {fileID: 3986740725032677054, guid: 96fdd8ffc44d24e47886222c999365dc, type: 3}

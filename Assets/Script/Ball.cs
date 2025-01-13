@@ -30,10 +30,12 @@ public class Ball : MonoBehaviour
         {
            
             GameObject obj1 = Instantiate(nextPrefeb, rb.position + Vector2.right / 4, Quaternion.identity);
+            GameManager.Instance.totalBall += 1;
             obj1.GetComponent<Ball>().forceDirection = new Vector2(2f, 5f);
             obj1.GetComponent<Ball>().nextPrefeb = GameManager.Instance.NextObject();
-                 
+            
             GameObject obj2 = Instantiate(nextPrefeb, rb.position + Vector2.left / 4, Quaternion.identity);
+            GameManager.Instance.totalBall += 1;
             obj2.GetComponent<Ball>().forceDirection = new Vector2(-2f, 5f);
             obj2.GetComponent<Ball>().nextPrefeb = GameManager.Instance.NextObject();
 
