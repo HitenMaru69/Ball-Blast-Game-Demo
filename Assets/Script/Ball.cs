@@ -38,13 +38,8 @@ public class Ball : MonoBehaviour
             GameManager.Instance.totalBall += 1;
             obj2.GetComponent<Ball>().forceDirection = new Vector2(-2f, 5f);
             obj2.GetComponent<Ball>().nextPrefeb = GameManager.Instance.NextObject();
-
-
-            
+           
         }
-
-
-
       
     }
 

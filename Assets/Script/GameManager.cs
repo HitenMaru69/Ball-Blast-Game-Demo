@@ -33,6 +33,8 @@ public class GameManager : MonoBehaviour
         EventManager.Instance.IncressBallNumber += IncreesCurrentObjectNumber;
 
         EventManager.Instance.PlayerWin += CheckPlayerWinn;
+
+        EventManager.Instance.PlayerDie += OnPlayerDie;
     }
 
 
@@ -43,6 +45,13 @@ public class GameManager : MonoBehaviour
             currentObject += 1;
         }
         
+    }
+
+    private void OnPlayerDie(object sender, System.EventArgs e)
+    {
+        // Player Die Functionality
+
+        Debug.Log("Player Die");
     }
 
     private void CheckPlayerWinn(object sender, System.EventArgs e)
@@ -72,6 +81,7 @@ public class GameManager : MonoBehaviour
     private void OnDisable()
     {
         EventManager.Instance.IncressBallNumber -= IncreesCurrentObjectNumber;
+        EventManager.Instance.PlayerWin -= CheckPlayerWinn;
     }
 
     public bool CheckCurrentObject()

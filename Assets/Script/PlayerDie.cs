@@ -6,10 +6,10 @@ public class PlayerDie : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Ball"))
         {
-            // Player Die Functionality
-
-            Debug.Log("Player Die ");
             
+            EventManager.Instance.PlayerDieEvent();
+
+            Debug.Log("Player Die ");   
 
         }
     }
