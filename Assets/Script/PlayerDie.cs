@@ -8,8 +8,8 @@ public class PlayerDie : MonoBehaviour
         {
             
             EventManager.Instance.PlayerDieEvent();
-
-            Debug.Log("Player Die ");   
+            Destroy(gameObject);
+            
 
         }
     }

@@ -14,6 +14,10 @@ public class GameManager : MonoBehaviour
     public int currentLevel = 0;
 
     public int totalBall;
+
+    [SerializeField] private Canvas loseCanvas;
+    [SerializeField] private Canvas winCanvas;
+    [SerializeField] private Canvas gamePlayCanvas;
     private void Awake()
     {
         Instance = this;
@@ -21,6 +25,12 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        
+
+        loseCanvas.enabled = false;
+        winCanvas.enabled = false;
+        gamePlayCanvas.enabled = true;
+
         currentLevel = PlayerPrefs.GetInt("CurrentLevel", 0);
         totalObject = levelList[currentLevel].ballPrefeb.Count;
         GameObject obj = Instantiate(levelList[currentLevel].firstObject.gameObject,transform.position,Quaternion.identity)
@@ -35,7 +45,10 @@ public class GameManager : MonoBehaviour
         EventManager.Instance.PlayerWin += CheckPlayerWinn;
 
         EventManager.Instance.PlayerDie += OnPlayerDie;
+
+        Time.timeScale = 0f;
     }
+
 
 
 
@@ -49,16 +62,14 @@ public class GameManager : MonoBehaviour
 
     private void OnPlayerDie(object sender, System.EventArgs e)
     {
-        // Player Die Functionality
-
-        Debug.Log("Player Die");
+        loseCanvas.enabled = true;
     }
 
     private void CheckPlayerWinn(object sender, System.EventArgs e)
     {
-        // Player Winn Functionality
-
-        Debug.Log("Player Winn");
+        winCanvas.enabled = true;
+        currentLevel++;
+        PlayerPrefs.SetInt("CurrentLevel", currentLevel);
     }
 
     public GameObject NextObject()
@@ -70,12 +81,17 @@ public class GameManager : MonoBehaviour
                        
             return levelList[currentLevel].ballPrefeb[currentObject].gameObject;
        }
-
         else
         {
             return null;
         }
         
+    }
+    
+    public void PlayBU()
+    {
+        Time.timeScale = 1f;
+        gamePlayCanvas.enabled = false;
     }
 
     private void OnDisable()
