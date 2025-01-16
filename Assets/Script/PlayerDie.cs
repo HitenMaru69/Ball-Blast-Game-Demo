@@ -7,8 +7,8 @@ public class PlayerDie : MonoBehaviour
         if (collision.gameObject.CompareTag("Ball"))
         {
             
-           // EventManager.Instance.PlayerDieEvent();
-            //Destroy(gameObject);
+            EventManager.Instance.PlayerDieEvent();
+            Destroy(gameObject);
             
 
         }
