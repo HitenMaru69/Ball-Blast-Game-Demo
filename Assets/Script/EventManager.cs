@@ -8,8 +8,6 @@ public class EventManager : MonoBehaviour
 
     public event EventHandler FireBullet;
 
-    public event EventHandler IncressBallNumber;
-
     public event EventHandler  NextBallSpwan;
 
     public event EventHandler PlayerDie;
@@ -33,10 +31,6 @@ public class EventManager : MonoBehaviour
         iswait = true;
     }
 
-    public void IncreesBallNumberEvent()
-    {
-        IncressBallNumber?.Invoke(this, EventArgs.Empty);
-    }
 
     public void NextSpwanBallEvent(Ball ball)
     {

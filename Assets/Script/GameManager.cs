@@ -10,7 +10,6 @@ public class GameManager : MonoBehaviour
     public List<Level> levelList; // Scriptable object 
 
     public int totalObject;
-    public int currentObject = 0;
     public int currentLevel = 0;
 
     public int totalBall;
@@ -38,9 +37,6 @@ public class GameManager : MonoBehaviour
         Ball ball = obj.GetComponent<Ball>();
         ball.nextPrefeb = levelList[currentLevel].ballPrefeb[0].gameObject;
         totalBall += 1;
-        currentObject += 1;
-
-        EventManager.Instance.IncressBallNumber += IncreesCurrentObjectNumber;
 
         EventManager.Instance.PlayerWin += CheckPlayerWinn;
 
@@ -49,14 +45,6 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0f;
     }
 
-
-    private void IncreesCurrentObjectNumber(object sender, System.EventArgs e)
-    {
-        //if(currentObject < totalObject  ) {
-        //    currentObject += 1;
-        //}
-        
-    }
 
     private void OnPlayerDie(object sender, System.EventArgs e)
     {
@@ -94,15 +82,8 @@ public class GameManager : MonoBehaviour
 
     private void OnDisable()
     {
-        EventManager.Instance.IncressBallNumber -= IncreesCurrentObjectNumber;
         EventManager.Instance.PlayerWin -= CheckPlayerWinn;
     }
 
-    public bool CheckCurrentObject()
-    {
-        if (currentObject != totalObject ) return true;
-        else return false;
 
-        
-    }
 }

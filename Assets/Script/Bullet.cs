@@ -23,7 +23,6 @@ public class Bullet : MonoBehaviour
             Ball ball = collision.gameObject.GetComponent<Ball>();
                
             EventManager.Instance.NextSpwanBallEvent(ball);
-            EventManager.Instance.IncreesBallNumberEvent();
             Destroy(collision.gameObject);
             Destroy(gameObject);
             GameManager.Instance.totalBall -= 1;
