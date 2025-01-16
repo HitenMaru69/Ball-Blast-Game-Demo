@@ -28,19 +28,26 @@ public class Ball : MonoBehaviour
 
         if (nextPrefeb != null)
         {
-           
-            GameObject obj1 = Instantiate(nextPrefeb, rb.position + Vector2.right / 4, Quaternion.identity);
-            GameManager.Instance.totalBall += 1;
-            obj1.GetComponent<Ball>().forceDirection = new Vector2(2f, 5f);
-            obj1.GetComponent<Ball>().nextPrefeb = GameManager.Instance.NextObject();
-            
-            GameObject obj2 = Instantiate(nextPrefeb, rb.position + Vector2.left / 4, Quaternion.identity);
-            GameManager.Instance.totalBall += 1;
-            obj2.GetComponent<Ball>().forceDirection = new Vector2(-2f, 5f);
-            obj2.GetComponent<Ball>().nextPrefeb = GameManager.Instance.NextObject();
-           
+ 
+            CreateBall(Vector2.right / 4, new Vector2(2f, 5f)); 
+            CreateBall(Vector2.left / 4, new Vector2(-2f, 5f)); 
+
         }
       
+    }
+
+    void CreateBall(Vector2 offset, Vector2 forceDirection)
+    {
+        GameObject obj = Instantiate(nextPrefeb, rb.position + offset, Quaternion.identity);
+        GameManager.Instance.totalBall += 1;
+
+        Ball ball = obj.GetComponent<Ball>();
+        if (ball != null)
+        {
+            ball.forceDirection = forceDirection;
+            int ballNumber = ball.number;
+            ball.nextPrefeb = GameManager.Instance.NextObject(ballNumber);
+        }
     }
 
 

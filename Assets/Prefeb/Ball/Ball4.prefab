@@ -168,4 +168,5 @@ MonoBehaviour:
   rb: {fileID: 2895518559036371601}
   forceDirection: {x: 2, y: 2}
   forceSpeed: 0.5
-  ball1: {fileID: 1197413578992627609, guid: f0bec0bfe84026e45b926fd70bd4cc96, type: 3}
+  number: 3
+  nextPrefeb: {fileID: 0}

@@ -26,7 +26,6 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        
 
         loseCanvas.enabled = false;
         winCanvas.enabled = false;
@@ -37,7 +36,7 @@ public class GameManager : MonoBehaviour
         GameObject obj = Instantiate(levelList[currentLevel].firstObject.gameObject,transform.position,Quaternion.identity)
             ;
         Ball ball = obj.GetComponent<Ball>();
-        ball.nextPrefeb = levelList[currentLevel].ballPrefeb[currentObject].gameObject;
+        ball.nextPrefeb = levelList[currentLevel].ballPrefeb[0].gameObject;
         totalBall += 1;
         currentObject += 1;
 
@@ -51,13 +50,11 @@ public class GameManager : MonoBehaviour
     }
 
 
-
-
     private void IncreesCurrentObjectNumber(object sender, System.EventArgs e)
     {
-        if(currentObject < totalObject  ) {
-            currentObject += 1;
-        }
+        //if(currentObject < totalObject  ) {
+        //    currentObject += 1;
+        //}
         
     }
 
@@ -73,14 +70,14 @@ public class GameManager : MonoBehaviour
         PlayerPrefs.SetInt("CurrentLevel", currentLevel);
     }
 
-    public GameObject NextObject()
+    public GameObject NextObject(int number)
     {
 
 
-       if (currentObject < totalObject)
+       if (number < totalObject) 
        {
                        
-            return levelList[currentLevel].ballPrefeb[currentObject].gameObject;
+            return levelList[currentLevel].ballPrefeb[number].gameObject; 
        }
         else
         {
