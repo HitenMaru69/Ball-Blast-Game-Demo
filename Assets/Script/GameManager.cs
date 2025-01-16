@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance; 
 
-    public List<Level> levelList;
+    public List<Level> levelList; // Scriptable object 
 
     public int totalObject;
     public int currentObject = 0;
@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
 
     public int totalBall;
 
+    [Space(5)]
     [SerializeField] private Canvas loseCanvas;
     [SerializeField] private Canvas winCanvas;
     [SerializeField] private Canvas gamePlayCanvas;

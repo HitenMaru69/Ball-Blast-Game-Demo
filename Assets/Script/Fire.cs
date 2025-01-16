@@ -14,10 +14,10 @@ public class Fire : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKeyUp(KeyCode.Space))
-        {
-            BulletFire();
-        }
+        //if(Input.GetKeyUp(KeyCode.Space))
+        //{
+        //    BulletFire();
+        //}
     }
 
     private void SpwanBullet(object sender, EventArgs e)

@@ -2,12 +2,12 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    [SerializeField] float bulletSpeed;
+    [SerializeField] float bulletSpeed;  
     void Update()
     {
         transform.Translate(Vector3.up * bulletSpeed * Time.deltaTime );
 
-        Destroy(gameObject, 2f);
+        Destroy(gameObject, 2f);  
     }
 
 
